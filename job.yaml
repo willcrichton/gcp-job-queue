@@ -1,0 +1,15 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: dl-videos
+spec:
+  parallelism: 10
+  template:
+    metadata:
+      name: dl-videos
+    spec:
+      containers:
+        - name: worker
+          image: gcr.io/visualdb-1046/worker
+          imagePullPolicy: Always
+      restartPolicy: OnFailure
