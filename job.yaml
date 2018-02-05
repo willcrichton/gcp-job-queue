@@ -3,13 +3,16 @@ kind: Job
 metadata:
   name: dl-videos
 spec:
-  parallelism: 10
+  parallelism: 3
   template:
     metadata:
       name: dl-videos
     spec:
       containers:
         - name: worker
-          image: gcr.io/visualdb-1046/worker
+          image: gcr.io/wc-personal/worker
           imagePullPolicy: Always
+          resources:
+            requests:
+              cpu: 0.5
       restartPolicy: OnFailure

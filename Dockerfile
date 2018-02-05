@@ -1,7 +1,8 @@
 FROM ubuntu:16.04
 
 RUN apt-get update && apt-get install -y python-pip curl
-RUN pip install youtube-dl google-cloud-pubsub
+COPY requirements.txt .
+RUN pip install -r requirements.txt
 
 RUN echo "deb http://packages.cloud.google.com/apt cloud-sdk-xenial main" | \
     tee -a /etc/apt/sources.list.d/google-cloud-sdk.list && \

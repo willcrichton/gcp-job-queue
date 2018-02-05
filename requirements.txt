@@ -1,0 +1,5 @@
+google-cloud-pubsub
+google-cloud-monitoring
+youtube-dl
+pandas
+tqdm
